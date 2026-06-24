@@ -348,7 +348,7 @@
             '</tr>' +
             '<tr>' +
               '<td colspan="2" style="padding-top:12px;">' +
-                '<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">' +
+                '<table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;width:100%;">' +
                   '<tr>' +
                     '<td width="115" style="font-family:'+fontStack+';font-size:12px;font-weight:400;color:#fff;padding:0 10px 3px 0;line-height:1.4;letter-spacing:-.18px;width:115px;vertical-align:top;">' +
                       '<a href="mailto:'+email+'" style="color:#fff;text-decoration:none;">'+email+'</a>' +
@@ -356,6 +356,8 @@
                     '<td style="font-family:'+fontStack+';font-size:12px;font-weight:400;color:#fff;padding:0 0 3px 0;line-height:1.4;letter-spacing:-.18px;vertical-align:top;">' +
                       '<a href="'+phoneHref+'" style="color:#fff;text-decoration:none;">'+phone+'</a>' +
                     '</td>' +
+                    // V2 ONLY: empty cell in row 1 (logo spans only row 2)
+                    (d.version === '2' ? '<td>&nbsp;</td>' : '') +
                   '</tr>' +
                   '<tr>' +
                     '<td width="115" style="font-family:'+fontStack+';font-size:12px;font-weight:400;color:#fff;padding:0 10px 0 0;line-height:1.4;letter-spacing:-.18px;width:115px;vertical-align:top;">' +
@@ -364,6 +366,12 @@
                     '<td style="font-family:'+fontStack+';font-size:12px;font-weight:400;color:#fff;padding:0;line-height:1.4;letter-spacing:-.18px;vertical-align:top;">' +
                       '<a href="'+addressUrl+'" target="_blank" rel="noopener" style="color:#fff;text-decoration:none;">'+address+'</a>' +
                     '</td>' +
+                    // V2 ONLY: KBEAUTY logo at far right, bottom-aligned with address text
+                    (d.version === '2' ? (
+                      '<td align="right" valign="bottom" style="padding:0 0 0 10px;text-align:right;vertical-align:bottom;white-space:nowrap;">' +
+                        '<img src="'+LOGO+'" alt="KBEAUTY" height="11" style="display:inline-block;border:0;outline:none;vertical-align:bottom;">' +
+                      '</td>'
+                    ) : '') +
                   '</tr>' +
                 '</table>' +
               '</td>' +
